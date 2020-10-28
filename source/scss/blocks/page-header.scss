@@ -42,7 +42,7 @@
   width: 10rem;
   color: $c-light;
   transform: translateX(-2rem);
-  transition: ease-in 200ms;
+  transition: $bezier-80 500ms;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -190,7 +190,7 @@
   line-height: 1.0418;
   color: $c-light;
   opacity: 0;
-  transition: ease-in 200ms;
+  transition: $bezier-80 500ms;
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
