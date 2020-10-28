@@ -100,7 +100,7 @@
   line-height: 1.27;
   opacity: 0;
   transform: translateY(3rem);
-  transition: ease-in 300ms;
+  transition: 300ms $bezier-80 300ms;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
