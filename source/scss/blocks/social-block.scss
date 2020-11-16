@@ -1,5 +1,7 @@
 .social-block {
   position: relative;
+  transform: scale(0);
+  transition: cubic-bezier(.72,1.39,.83,1.37) 300ms;
 
   &:hover {
     .social-block__list {
@@ -7,6 +9,10 @@
       pointer-events: auto;
     }
   }
+}
+
+.loaded .social-block {
+  transform: scale(1);
 }
 
 .social-block__toggler {

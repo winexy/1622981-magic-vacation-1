@@ -26,15 +26,23 @@
   justify-content: space-between;
 }
 
+.loaded .page-header__logo {
+  opacity: 1;
+  transform: none;
+}
+
 .page-header__logo {
   @include hover;
   position: relative;
   flex: none;
   top: -0.5rem;
   display: block;
+  opacity: 0;
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-2rem);
+  transition: $bezier-80 500ms;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -170,6 +178,10 @@
   }
 }
 
+.loaded .page-header__menu {
+  opacity: 1;
+}
+
 .page-header__menu {
   font-family: $font-alt;
   text-transform: uppercase;
@@ -177,6 +189,8 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+  opacity: 0;
+  transition: $bezier-80 500ms;
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -252,7 +266,7 @@
       width: 0;
       height: 2px;
       background-color: $c-light;
-      transition: width ease-in 150ms;
+      transition: width ease-in 300ms;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;

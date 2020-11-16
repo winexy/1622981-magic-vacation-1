@@ -38,6 +38,10 @@
   z-index: 1;
 }
 
+.loaded .screen__footer {
+  transform: translateY(0);
+}
+
 .screen__footer {
   position: absolute;
   bottom: 0;
@@ -46,6 +50,8 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transform: translateY(100%);
+  transition: $bezier-80 500ms;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;

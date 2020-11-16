@@ -86,6 +86,11 @@
   }
 }
 
+.loaded .intro__message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .intro__message {
   flex: none;
   width: 50.9rem;
@@ -94,10 +99,8 @@
   font-size: 2.4rem;
   line-height: 1.27;
   opacity: 0;
-  animation-name: FadeIn;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-  animation-duration: 500ms;
+  transform: translateY(3rem);
+  transition: 300ms $bezier-80 300ms;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
@@ -165,17 +168,5 @@
   @media (min-width: $stop-scaling) {
     margin: 0 0 0 -5px;
     font-size: 48px;
-  }
-}
-
-
-@keyframes FadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
