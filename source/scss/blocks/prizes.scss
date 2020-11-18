@@ -1,9 +1,12 @@
 .prizes {
+  opacity: 0;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   padding: 14.6rem 0 7.7rem;
   width: 100%;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
 
   @media (min-width: $stop-scaling) {
     padding: 146px 0 65px;
@@ -19,6 +22,19 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 5rem 0 1.5rem;
+  }
+}
+
+.loaded .screen--prizes.active .prizes {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

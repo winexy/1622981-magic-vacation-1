@@ -34,9 +34,11 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
-    this.changeActiveMenuItem();
-    this.emitChangeDisplayEvent();
+    this.emitBeforeChangeDisplayEvent(() => {
+      this.changeVisibilityDisplay();
+      this.changeActiveMenuItem();
+      this.emitChangeDisplayEvent();
+    });
   }
 
   changeVisibilityDisplay() {
@@ -54,6 +56,19 @@ export default class FullPageScroll {
       this.menuElements.forEach((item) => item.classList.remove(`active`));
       activeItem.classList.add(`active`);
     }
+  }
+
+  emitBeforeChangeDisplayEvent(done) {
+    const event = new CustomEvent(`beforeScreenChanged`, {
+      detail: {
+        done,
+        'screenId': this.activeScreen,
+        'screenName': this.screenElements[this.activeScreen].id,
+        'screenElement': this.screenElements[this.activeScreen]
+      }
+    });
+
+    document.body.dispatchEvent(event);
   }
 
   emitChangeDisplayEvent() {
