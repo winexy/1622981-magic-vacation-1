@@ -29,9 +29,28 @@ document.body.addEventListener(`beforeScreenChanged`, (e) => {
     done();
   }
 
+  if (screenName === `rules`) {
+    handleRulesScreen();
+  }
+
   currentScreenName = screenName;
 });
 
+
+function handleRulesScreen() {
+  const rulesLink = document.querySelector(`.js-rules-link`);
+  animateWidth(rulesLink);
+}
+
+function animateWidth(el) {
+  const {width} = getComputedStyle(el);
+  el.style.width = 0;
+  getComputedStyle(el).width;
+  el.style.width = width;
+  el.addEventListener(`transitionend`, (e) => {
+    el.style.width = `auto`;
+  }, {once: true});
+}
 
 function showCurtain(done) {
   const curtain = document.querySelector(`.js-screen-curtain`);
